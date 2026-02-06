@@ -1,0 +1,408 @@
+<main>
+    <!-- Hero / Intro -->
+    <section class="hero">
+        <!-- Full-width slider -->
+        <div class="hero-slider">
+            <div class="slide" [class.active]="currentSlide === 0">
+                <img src="assets/slider/IMG_8435.JPG" alt="">
+            </div>
+            <div class="slide" [class.active]="currentSlide === 1">
+                <img src="assets/slider/5M4A2049.JPG" alt="">
+            </div>
+            <div class="slide" [class.active]="currentSlide === 2">
+                <img src="assets/slider/1F7A1015.JPG" alt="">
+            </div>
+            <div class="slide" [class.active]="currentSlide === 3">
+                <img src="assets/photos/slider 2.jpeg" alt="">
+            </div>
+            <div class="slide" [class.active]="currentSlide === 4">
+                <img src="assets/slider/WhatsApp Image 2026-01-28 at 1.23.30 PM.jpeg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- stats / -->
+    <section class="stats-section" #statsSection>
+        <div class="container stats-grid">
+            <!-- Stat 1 -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-smile"></i>
+                </div>
+                <h3 class="stat-number">{{ stats.happyClients | number:'1.0-0' }}</h3>
+                <p class="stat-label">Happy Clients</p>
+            </div>
+            <!-- Stat 2 -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 class="stat-number">{{ stats.eventsDone | number:'1.0-0' }}</h3>
+                <p class="stat-label">Events Done</p>
+            </div>
+            <!-- Stat 3 -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3 class="stat-number">{{ stats.yearsBusiness | number:'1.0-0' }}</h3>
+                <p class="stat-label">Years in Business</p>
+            </div>
+            <!-- Stat 4 -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="stat-number">{{ stats.teamSize | number:'1.0-0' }}</h3>
+                <p class="stat-label">Team Size</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Are / What We Do -->
+    <section id="key" class="key-section">
+        <div class="container">
+            <h2 class="section-title">Our Key Services</h2>
+            <p class="section-subtitle">
+                From idea to flawless execution, we handle every detail so your events and experiences stand out.
+            </p>
+
+            <div class="key-grid">
+                <!-- Card 1 -->
+                <article class="key-card">
+                    <div class="key-card-image">
+                        <a routerLink="/government">
+                            <img src="assets/photos/slider 1.jpeg" alt="">
+                        </a>
+                    </div>
+                    <h3>Goverment Events</h3>
+                    <p>
+                        We specialize in planning and executing government events with large-scale public gatherings to
+                        official inaugurations and policy-driven conferences, we provide end-to-end event management
+                        while strictly adhering to government guidelines, security norms, and administrative procedures.
+                    </p>
+                    <div class="card-dot">
+                        <img src="assets/photos/Screenshot_2025-12-30_155339-removebg-preview.png" alt="ardour A">
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="key-card">
+                    <div class="key-card-image">
+                        <a routerLink="/corporate">
+                            <img src="assets/about/download.jpg" alt="Celebrity Management">
+                        </a>
+                    </div>
+                    <h3>Corporate Events & Exhibitions</h3>
+                    <p>
+                        We manage meetings, conferences, award shows and corporate gatherings with end-to-end planning,
+                        production and on-ground execution. Our team delivers seamless experiences with precision,
+                        creativity, professionalism, and ensuring your event runs flawlessly and leaves a lasting
+                        impression.
+                    </p>
+                    <div class="card-dot">
+                        <img src="assets/photos/Screenshot_2025-12-30_155339-removebg-preview.png" alt="ardour A">
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="key-card">
+                    <div class="key-card-image">
+                        <a routerLink="/atl-btl">
+                            <img src="assets/photos/WhatsApp Image 2025-12-04 at 12.54.14_0131f711.jpg"
+                                alt="Wedding Planner"></a>
+                    </div>
+                    <h3>ATL & BTL Activities</h3>
+                    <p>
+                        We execute brand activities that connect businesses with their target audience. Our
+                        integrated approach delivers strong visibility and engagement across mass media and
+                        on-ground platforms, supported by strategic planning, creative execution, and seamless
+                        operations to drive measurable brand results.
+                    </p>
+                    <div class="card-dot">
+                        <img src="assets/photos/Screenshot_2025-12-30_155339-removebg-preview.png" alt="ardour A">
+                    </div>
+                </article>
+                <!-- card-4 -->
+                <article class="key-card">
+                    <div class="key-card-image">
+                        <a routerLink="/staffing">
+                            <img src="assets/photos/WhatsApp Image 2025-12-30 at 6.30.26 PM.jpeg"
+                                alt="Celebrity Management">
+                        </a>
+                    </div>
+                    <h3>Staffing & Recruitment</h3>
+                    <p>
+                        We provide end-to-end Recruitment Services and Staffing Services, offering industry-specific
+                        staffing across IT & Technical, Hospitality, Healthcare, Manufacturing & Industrial, Retail &
+                        FMCG, Logistics & Warehouse, BFSI & Corporate, and Event & Promotional sectors. Our
+                        comprehensive candidate management & support ensures timely hiring, compliance, and quality
+                        workforce solutions.
+                    </p>
+                    <div class="card-dot">
+                        <img src="assets/photos/Screenshot_2025-12-30_155339-removebg-preview.png" alt="ardour A">
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="about-section">
+        <div class="container">
+            <h2 class="about-title">About</h2>
+
+            <div class="about-layout">
+                <!-- LEFT COLUMN: TEXT -->
+                <div class="about-text">
+                    <span class="about-label">Welcome To <br>
+                        <span class="about-label2">Ardour Brand And Services</span></span>
+
+                    <p class="about-heading">Event Management Company in Delhi</p>
+
+                    <p class="about-lead">
+                        Ardour is a recognized and trusted service currently active in every field of event
+                        organization.
+                    </p>
+
+                    <p>
+                        Ardour Brand Services is a Delhi-based event management firm with a strong presence across major
+                        cities in India, enabling seamless local coordination and efficient on-ground execution. Over
+                        the years, we have consistently evolved, strengthening our expertise and enhancing our
+                        capabilities across all facets of event planning and management.
+                    </p>
+
+                    <p>
+                        Backed by a team of young, creative, dynamic, and dedicated professionals, we deliver end-to-end
+                        event solutions across artist management, product launches, exhibitions, roadshows, fashion
+                        shows, wedding planning, and celebrity management.
+                    </p>
+
+                    <p>
+                        Our commitment to excellence and attention to detail drive us to consistently deliver results
+                        that go beyond client expectations. This unwavering zeal allows us to serve a diverse clientele
+                        while maintaining high-quality standards at competitive rates.
+                    </p>
+
+                    <!-- bottom line + bullet text -->
+                    <div class="about-more-row">
+                        <div class="about-line"></div>
+                        <div class="about-more">
+                            <!-- <span class="about-dot"></span> -->
+                            <span><a routerLink="/about">For More to Read</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: IMAGES + BUTTON -->
+                <div class="about-media">
+                    <div class="about-media-top">
+                        <div class="media-box">
+                            <img src="assets/about/ar.png" alt="Events Management">
+                        </div>
+                    </div>
+
+                    <a href="javascript:void(0)">
+                        <button class="gallery-btn" type="button">
+                            More From Gallery
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients & Showcase -->
+    <div class="container-brand">
+        <h2>Brands Worked With</h2>
+    </div>
+    <section class="logo-slider">
+
+        <div class="logo-track">
+            <!-- LOGOS (repeat twice for seamless loop) -->
+            <div class="logo">
+                <img src="assets/logo/airtel-seeklogo.png" alt="">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/bosch-seeklogo.png" alt="">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/canon-seeklogo.png" alt="">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/national-health-authority-seeklogo.png" alt="">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/casio-seeklogo.png">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/raymond-seeklogo.png">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/sbi-new-seeklogo.png">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/samsung-seeklogo.png">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/pantaloons-seeklogo.png">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/snapdeal-seeklogo.png">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/philips-seeklogo.png">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/moserbaer-seeklogo.png">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/WhatsApp_Image_2026-01-28_at_4.40.21_PM-removebg-preview.png">
+            </div>
+
+            <!-- DUPLICATE FOR INFINITE LOOP -->
+            <div class="logo">
+                <img src="assets/logo/airtel-seeklogo.png" alt="">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/bosch-seeklogo.png" alt="">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/canon-seeklogo.png" alt="">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/colorbar-seeklogo.png" alt="">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/casio-seeklogo.png">
+            </div>
+            <div class="logo">
+                <img src="assets/logo/raymond-seeklogo.png">
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section class="why-us">
+        <h2 class="why-A">Why brands choose Ardour</h2>
+
+        <div class="why-grid" style="margin-top:1.2rem;">
+            <div class="card why-item">
+                <h3>Strategic Thinking Meets Creative Excellence</h3>
+                <p>
+                    We blend strong conceptual thinking with innovative design and precise planning to create events
+                    that are purposeful, engaging, and memorable. Guided by a clear understanding of your brand vision
+                    and objectives, every element—from concept and design to execution and audience interaction—works in
+                    harmony to deliver meaningful experiences and lasting brand impact.
+                </p>
+            </div>
+            <div class="card why-item">
+                <h3>End-to-End Event Solutions</h3>
+                <p>
+                    We manage every stage of the event lifecycle—from ideation and planning to seamless execution and
+                    post-event evaluation. With all services handled under one roof, we ensure aligned timelines,
+                    controlled budgets, and flawless delivery, allowing you to stay focused on your objectives while we
+                    create a smooth, stress-free event experience from start to finish
+                </p>
+            </div>
+            <div class="card why-item">
+                <h3>Pan-India Presence & Local Expertise</h3>
+                <p>
+                    With a strong presence across major cities in India, we combine nationwide reach with deep local
+                    insight. Our understanding of regional markets and on-ground execution enables seamless
+                    coordination, efficient logistics, and consistent quality—delivering flawless event experiences
+                    anywhere in the country.
+                </p>
+            </div>
+            <div class="card why-item">
+                <h3>Experienced & Passion-Driven Team</h3>
+                <p>
+                    Our team of experienced and dynamic professionals brings creativity, strategic insight, and
+                    operational excellence to every project. With a passion for detail and a solutions-driven approach,
+                    we ensure seamless coordination and consistently deliver events that exceed expectations.
+                </p>
+            </div>
+            <div class="card why-item">
+                <h3>Strong Vendor & Artist Network</h3>
+                <p>
+                    Our long-standing partnerships with trusted vendors, artists, and production partners enable us to
+                    deliver high-quality events with creative flexibility, cost efficiency, and timely execution. This
+                    strong network ensures seamless coordination and reliable outcomes without compromising on
+                    experience or budget.
+                </p>
+            </div>
+            <div class="card why-item">
+                <h3>Focus on ROI & Brand Impact</h3>
+                <p>
+                    We design events with clear business objectives in mind, ensuring measurable impact beyond the
+                    experience. By aligning strategy, creativity, and performance insights, we deliver events that drive
+                    engagement, strengthen brand recall, and generate lasting value.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <h2 class="contact-A">Let’s talk about your next campaign</h2>
+        <p class="contact-B">
+            Share your brief with us and we’ll come back with ideas that combine creativity, practicality and
+            measurable impact.
+        </p>
+
+        <div class="grid-2" style="margin-top:1.2rem;">
+            <div class="card">
+                <h3>Corporate Office</h3>
+                <p>
+                    Plot No. 4 &amp; 5,<br />
+                    Vijay Enclave, Palam Dabri Marg,<br />
+                    New Delhi – 110045, India
+                </p>
+                <p>
+                    <strong>Mobile:</strong> +91 99 1017 1637<br />
+                    <strong>Email:</strong> <a href="mailto:ravi@ardour.in">ravi@ardour.in</a><br />
+                    <strong>Website:</strong> <a href="https://www.ardour.in" target="_blank"
+                        rel="noopener">www.ardour.in</a>
+                </p>
+            </div>
+            <div class="card">
+                <h3>Quick Contact Form</h3>
+                <p style="font-size:0.85rem;">
+                    Let’s Connect
+                </p>
+                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                    <div style="margin-bottom:0.6rem;">
+                        <label for="name" class="input-label">Name</label><br />
+                        <input id="name" type="text" class="input-field" formControlName="name" />
+                        <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+                            style="color:red; font-size: 0.8rem;">Name is required</div>
+                    </div>
+                    <div style="margin-bottom:0.6rem;">
+                        <label for="email" class="input-label">Email</label><br />
+                        <input id="email" type="email" class="input-field" formControlName="email" />
+                        <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+                            style="color:red; font-size: 0.8rem;">Valid email is required</div>
+                    </div>
+                    <div style="margin-bottom:0.6rem;">
+                        <label for="number" class="input-label">mobile</label><br />
+                        <input id="number" type="number" class="input-field" formControlName="mobile" />
+                        <div *ngIf="contactForm.get('mobile')?.invalid && contactForm.get('mobile')?.touched"
+                            style="color:red; font-size: 0.8rem;">Mobile number is required</div>
+                    </div>
+                    <div style="margin-bottom:0.6rem;">
+                        <label for="message" class="input-label">Project / Requirement</label><br />
+                        <textarea id="message" rows="3" class="input-field" formControlName="message"></textarea>
+                        <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+                            style="color:red; font-size: 0.8rem;">Message is required</div>
+                    </div>
+                    <button type="submit" class="btn-primary" [disabled]="contactForm.invalid || isSubmitting">
+                        <span *ngIf="!isSubmitting">Submit Enquiry</span>
+                        <span *ngIf="isSubmitting">Sending...</span>
+                    </button>
+                    <div *ngIf="successMessage" style="color: green; margin-top: 10px;">{{ successMessage }}</div>
+                    <div *ngIf="errorMessage" style="color: red; margin-top: 10px;">{{ errorMessage }}</div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>

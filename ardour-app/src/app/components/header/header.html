@@ -1,0 +1,62 @@
+<header id="site-header" [class.nav-scrolled]="isScrolled">
+    <nav class="nav">
+        <div class=" nav-logo">
+            <img src="assets/photos/WhatsApp Image 2025-12-29 at 1.14.26 PM.png" alt="logo">
+        </div>
+        <div class="logo-text">
+            ARDOUR
+            <span>BRAND</span>
+            <span>SERVICES</span>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" (click)="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+            <div class="services-dropdown">
+                <a routerLink="/" fragment="services" class="services-link">Services</a>
+
+                <!-- MEGA MENU -->
+                <div class="mega-menu">
+                    <div class="mega-col">
+                        <a routerLink="/government">Goverment Events</a>
+                        <a routerLink="/corporate">Exhibitions</a>
+                        <a href="javascript:void(0)">Seminars</a>
+                        <a href="javascript:void(0)">Annual Day</a>
+                        <a href="javascript:void(0)">Award Night</a>
+                        <a href="javascript:void(0)">Sports Events</a>
+
+                    </div>
+
+                    <div class="mega-col">
+
+                        <a href="javascript:void(0)">Team Building Activities</a>
+                        <a href="javascript:void(0)">Family Day Events</a>
+                        <a routerLink="/atl-btl">ATL & BTL Activities</a>
+                        <a href="javascript:void(0)">Brand Promotion</a>
+                        <a href="javascript:void(0)">Artist Management</a>
+                        <a href="javascript:void(0)">Celebrity Management</a>
+                    </div>
+
+                    <div class="mega-col">
+                        <a href="javascript:void(0)">Theme Party</a>
+                        <a href="javascript:void(0)">Entertainment</a>
+                        <a href="javascript:void(0)">Stage & Fabrication</a>
+                        <a href="javascript:void(0)">Rentals</a>
+                        <a routerLink="/staffing">Manpower</a>
+                        <a href="javascript:void(0)">Corporate Gifting</a>
+                    </div>
+                </div>
+            </div>
+
+            <a routerLink="/about">About Us</a>
+            <!-- <a href="#bpo">ABS BPO</a> -->
+            <!-- <a href="#why-us">Why Us</a> -->
+            <a routerLink="/contact">Contact</a>
+            <button class="btn-nav" (click)="scrollToContact()">
+                Let’s Talk
+            </button>
+        </div>
+    </nav>
+</header>
