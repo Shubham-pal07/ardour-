@@ -1,24 +1,30 @@
 <header id="site-header" [class.nav-scrolled]="isScrolled">
     <nav class="nav">
-        <div class=" nav-logo">
-            <img src="assets/photos/WhatsApp Image 2025-12-29 at 1.14.26 PM.png" alt="logo">
-        </div>
-        <div class="logo-text">
-            ARDOUR
-            <span>BRAND</span>
-            <span>SERVICES</span>
+        <div class="nav-brand">
+            <div class="nav-logo">
+                <img src="assets/photos/WhatsApp Image 2025-12-29 at 1.14.26 PM.png" alt="logo">
+            </div>
+            <div class="logo-text">
+                ARDOUR
+               <span>BRAND</span>   
+               <span>SERVICES</span>
+                
+            </div>
         </div>
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" (click)="toggleNav()">
             <span></span>
             <span></span>
             <span></span>
         </button>
-        <div class="nav-links" id="nav-links">
-            <div class="services-dropdown">
-                <a routerLink="/" fragment="services" class="services-link">Services</a>
+        <div class="nav-links" id="nav-links" [class.active]="isNavOpen">
+            <div class="services-dropdown" [class.active]="isServicesOpen">
+                <a (click)="toggleServices($event)" class="services-link">
+                    Services
+                    <span class="caret" [class.rotated]="isServicesOpen"></span>
+                </a>
 
                 <!-- MEGA MENU -->
-                <div class="mega-menu">
+                <div class="mega-menu" [class.open]="isServicesOpen">
                     <div class="mega-col">
                         <a routerLink="/government">Goverment Events</a>
                         <a routerLink="/corporate">Exhibitions</a>
@@ -50,9 +56,7 @@
                 </div>
             </div>
 
-            <a routerLink="/about">About Us</a>
-            <!-- <a href="#bpo">ABS BPO</a> -->
-            <!-- <a href="#why-us">Why Us</a> -->
+            <a routerLink="/about" class="nav-item-about">About Us</a>
             <a routerLink="/contact">Contact</a>
             <button class="btn-nav" (click)="scrollToContact()">
                 Let’s Talk

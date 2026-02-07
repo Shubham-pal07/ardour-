@@ -1,0 +1,58 @@
+.about-media-top {
+  /* display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem; */
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.media-box {
+  background:whitesmoke;
+  opacity:0.9;
+  border-radius: 5%;
+  align-items: center;
+  display: flex;
+  width: 280px;          /* pick ONE size */
+  height: 360px;
+  
+  overflow: hidden;
+  justify-content: center;
+}
+
+.media-box img {
+   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  
+  /* display: block; */
+}
+
+/* video overlay */
+.media-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* prevents strip issue */
+}
+/* .media-video {
+  
+  object-fit: cover;
+  object-position: center top; /* or center center */
+/* } */ 
+/* .media-video {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+} */
+
+.media-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* 🔥 THIS fixes the strip issue */
+}
+.media-video .play-btn {
+  display: none;
+}

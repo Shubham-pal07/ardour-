@@ -1,78 +1,82 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;}
+  box-sizing: border-box;
+}
 
 .corporate-hero {
-    position: relative;
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
 }
 
 /* Image */
 .corporate-hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* filter: brightness(55%); */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* filter: brightness(55%); */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 /* Dark Overlay */
 .corporate-hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.35);
-    z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 2;
 }
 
 /* TEXT POSITION ADJUSTED TO BOTTOM-LEFT */
 .corporate-hero-content {
-    position: absolute;
-    bottom: 30px;   /* move up/down */
-    left: 50px;     /* move left/right */
-    z-index: 3;
-    color: #fff;
-    text-align: left;  /* align left */
+  position: absolute;
+  bottom: 30px;
+  /* move up/down */
+  left: 50px;
+  /* move left/right */
+  z-index: 3;
+  color: #fff;
+  text-align: left;
+  /* align left */
 }
 
 .corporate-hero-content h1 {
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 6px;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
 
 /* Breadcrumb */
 .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #ffffffc9;
-    font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffffc9;
+  font-size: 16px;
 }
 
 .breadcrumb a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .breadcrumb a:hover {
-    color: #FFB703;
+  color: #FFB703;
 }
 
 
 
 .corporate-section {
   padding: 70px 10%;
-  background:var(--bg-dark);
+  background: var(--bg-dark);
 }
 
 .corporate-title {
@@ -126,22 +130,21 @@
   width: 100%;
   max-width: 450px;
   border-radius: 25px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 
 
-.corporate-slanted-section{
+.corporate-slanted-section {
   background: #FFB703;
   padding: 100px 10%;
   margin: 100px 0;
-  clip-path: polygon(
-    0% 8%,
-    100% 0%,
-    100% 92%,
-    0% 100%
-  );
+  clip-path: polygon(0% 8%,
+      100% 0%,
+      100% 92%,
+      0% 100%);
 }
+
 .corporate-slanted-section p {
   color: #fff;
   text-align: center;
@@ -154,7 +157,7 @@
 
 .corporateservices-section {
   padding: 80px 8%;
-  background:var(--bg-dark);
+  background: var(--bg-dark);
   text-align: center;
 }
 
@@ -189,14 +192,14 @@
   background: #fff;
   padding: 60px 35px 40px;
   border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   position: relative;
-  }
+}
 
-  .corporateservice-card p {
-    color: #050509;
+.corporateservice-card p {
+  color: #050509;
 
-  }
+}
 
 .corporateservice-card h3 {
   font-size: 24px;
@@ -220,7 +223,7 @@
   top: -27px;
   left: 50%;
   transform: translateX(-50%);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -251,6 +254,33 @@
   .corporateservices-grid {
     grid-template-columns: 1fr;
   }
+
+  .corporate-content {
+    flex-direction: column-reverse;
+    /* Image top or bottom? User said "adjust image", usually nice on top but let's see. If column-reverse, image is TOP because HTML order is Text then Image. Wait, HTML is Text then Image. column-reverse puts Image first (top). normal column puts Text first. Let's do column (Text top) or column-reverse (Image top). Standard is often Image top. HTML: Text, Image. column-reverse -> Image, Text. */
+    gap: 2rem;
+  }
+
+  .corporate-gallery-grid {
+    /* Assuming this might exist or be needed */
+    grid-template-columns: 1fr;
+  }
+
+  .corporate-text,
+  .corporate-image {
+    width: 100%;
+    text-align: left;
+    /* Reset text align for image container if needed */
+  }
+
+  .corporate-image {
+    text-align: center;
+    /* Center image on mobile */
+  }
+
+  .corporate-section {
+    padding: 40px 1.5rem;
+  }
 }
 
 ul {
@@ -260,7 +290,8 @@ ul {
 
 ul li::before {
   content: "•";
-  margin-right: 8px;   /* control bullet-text gap here */
+  margin-right: 8px;
+  /* control bullet-text gap here */
 }
 
 
@@ -269,11 +300,12 @@ ul li::before {
 
 /* pic */
 
-.pic{
+.pic {
   text-align: center;
   padding-bottom: 5px;
   color: var(--accent);
- }
+}
+
 .masonry {
   column-count: 3;
   column-gap: 15px;
@@ -290,7 +322,9 @@ ul li::before {
 }
 
 @media (max-width: 600px) {
-  .pic-grid, .gallery {
+
+  .pic-grid,
+  .gallery {
     grid-template-columns: repeat(2, 1fr);
   }
 

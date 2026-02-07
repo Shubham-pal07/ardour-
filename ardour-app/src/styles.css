@@ -3,3 +3,33 @@
 @import "assets/css/aboutus.css";
 
 /* Global Styles */
+.navbar,
+header,
+.nav {
+  height: auto !important;
+  min-height: 64px;
+  overflow: visible !important;
+  display: flex;
+  align-items: center;
+}
+.navbar-logo,
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.navbar-logo img,
+.logo img {
+  max-height: 48px;      /* CONTROL THIS */
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+@media (max-width: 768px) {
+  .navbar-logo img,
+  .logo img {
+    max-height: 40px;
+  }
+}
+
+ 

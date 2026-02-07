@@ -29,7 +29,7 @@
                 <div class="stat-icon">
                     <i class="fas fa-smile"></i>
                 </div>
-                <h3 class="stat-number">{{ stats.happyClients | number:'1.0-0' }}</h3>
+                <h3 class="stat-number">361</h3>
                 <p class="stat-label">Happy Clients</p>
             </div>
             <!-- Stat 2 -->
@@ -37,7 +37,7 @@
                 <div class="stat-icon">
                     <i class="fas fa-check-circle"></i>
                 </div>
-                <h3 class="stat-number">{{ stats.eventsDone | number:'1.0-0' }}</h3>
+                <h3 class="stat-number">40+</h3>
                 <p class="stat-label">Events Done</p>
             </div>
             <!-- Stat 3 -->
@@ -45,7 +45,7 @@
                 <div class="stat-icon">
                     <i class="fas fa-briefcase"></i>
                 </div>
-                <h3 class="stat-number">{{ stats.yearsBusiness | number:'1.0-0' }}</h3>
+                <h3 class="stat-number">5</h3>
                 <p class="stat-label">Years in Business</p>
             </div>
             <!-- Stat 4 -->
@@ -53,7 +53,7 @@
                 <div class="stat-icon">
                     <i class="fas fa-users"></i>
                 </div>
-                <h3 class="stat-number">{{ stats.teamSize | number:'1.0-0' }}</h3>
+                <h3 class="stat-number">14</h3>
                 <p class="stat-label">Team Size</p>
             </div>
         </div>
@@ -109,7 +109,7 @@
                 <article class="key-card">
                     <div class="key-card-image">
                         <a routerLink="/atl-btl">
-                            <img src="assets/photos/WhatsApp Image 2025-12-04 at 12.54.14_0131f711.jpg"
+                            <img src="assets\corporate\85183117_2862275650508814_5960653353959555072_o.jpg"
                                 alt="Wedding Planner"></a>
                     </div>
                     <h3>ATL & BTL Activities</h3>
@@ -156,7 +156,7 @@
                 <!-- LEFT COLUMN: TEXT -->
                 <div class="about-text">
                     <span class="about-label">Welcome To <br>
-                        <span class="about-label2">Ardour Brand And Services</span></span>
+                        <span class="about-label2">Ardour Brand Services</span></span>
 
                     <p class="about-heading">Event Management Company in Delhi</p>
 
@@ -200,9 +200,18 @@
                         <div class="media-box">
                             <img src="assets/about/ar.png" alt="Events Management">
                         </div>
-                    </div>
+                    </div> 
+                    <div class="media-box media-video">
+                        <video autoplay muted loop playsinline>
+                           <source src="assets\photos\Untitled design.mp4" type="video/mp4">
+                        </video>
 
-                    <a href="javascript:void(0)">
+                        <button class="play-btn" type="button"></button>
+                    </div>   
+                </div>
+                <div>
+
+                    <a routerLink="/gallery">
                         <button class="gallery-btn" type="button">
                             More From Gallery
                         </button>

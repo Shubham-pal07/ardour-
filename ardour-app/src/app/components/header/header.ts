@@ -10,8 +10,15 @@ import { RouterLink, Router } from '@angular/router';
 })
 export class Header {
   isScrolled = false;
+  isServicesOpen = false;
+  isNavOpen = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router) { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router) {
+    // Listen for route changes to close the menu
+    this.router.events.subscribe(() => {
+      this.closeNav();
+    });
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -22,11 +29,34 @@ export class Header {
 
   toggleNav() {
     if (isPlatformBrowser(this.platformId)) {
-      document.body.classList.toggle('nav-open');
+      this.isNavOpen = !this.isNavOpen;
+      if (this.isNavOpen) {
+        document.body.classList.add('nav-open');
+      } else {
+        document.body.classList.remove('nav-open');
+      }
+    }
+  }
+
+  closeNav() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.isNavOpen = false;
+      document.body.classList.remove('nav-open');
+      this.isServicesOpen = false;
+    }
+  }
+
+  toggleServices(event: Event) {
+    // Only toggle on smaller screens where nav-toggle is visible
+    if (isPlatformBrowser(this.platformId) && window.innerWidth <= 900) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.isServicesOpen = !this.isServicesOpen;
     }
   }
 
   scrollToContact() {
+    this.closeNav(); // Close nav explicitly when clicking this specific button
     this.router.navigate(['/'], { fragment: 'contact' }).then(() => {
       const element = document.getElementById('contact');
       if (element) {

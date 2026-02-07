@@ -2,7 +2,15 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
+
+console.log('--- Server Configuration ---');
+console.log('SMTP_HOST:', process.env.SMTP_HOST);
+console.log('SMTP_PORT:', process.env.SMTP_PORT);
+console.log('SMTP_USER:', process.env.SMTP_USER);
+console.log('SMTP_PASS is set:', !!process.env.SMTP_PASS);
+console.log('---------------------------');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,7 +31,7 @@ app.post('/api/send-email', (req, res) => {
     // Configure Nodemailer Transporter for custom SMTP
     const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
-        port: process.env.SMTP_PORT,
+        port: parseInt(process.env.SMTP_PORT || '587'),
         secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
         auth: {
             user: process.env.SMTP_USER,
@@ -51,6 +59,26 @@ app.post('/api/send-email', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+});
+
+server.on('error', (error) => {
+    console.error('SERVER ERROR:', error);
+    if (error.code === 'EADDRINUSE') {
+        console.error(`Port ${PORT} is already in use. Please kill the other process or use a different port.`);
+    }
+});
+
+// Keep-alive to see if process is killed or finishes
+// setInterval(() => {
+//     console.log('Server is heartbeat... Time:', new Date().toLocaleTimeString());
+// }, 5000);
+
+process.on('uncaughtException', (err) => {
+    console.error('UNCAUGHT EXCEPTION:', err);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('UNHANDLED REJECTION:', reason);
 });

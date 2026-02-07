@@ -1,0 +1,214 @@
+/* Responsive Navbar Styles */
+
+@media (max-width: 900px) {
+
+    /* Show Hamburger on Mobile */
+    .nav-toggle {
+        display: block !important;
+        z-index: 1001;
+        /* Must be above everything */
+        position: relative;
+    }
+
+    /* Mobile Navigation Container */
+    .nav-links {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        left: auto !important;
+        bottom: 0 !important;
+        width: 280px !important;
+        /* Reliable fixed width for mobile */
+        background: #2E3A66 !important;
+        padding: 5rem 1.5rem 2rem !important;
+        /* Standard balanced padding */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.5rem !important;
+        transform: translateX(100%) !important;
+        transition: transform 0.3s ease-out !important;
+        z-index: 2000 !important;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.7) !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        text-align: left !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Open State - Strongest Overrides to Fix Invisible Menu */
+    body.nav-open .nav-links,
+    .nav-links.active {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateX(0) !important;
+        pointer-events: auto !important;
+        background: #2E3A66 !important;
+        /* Ensure solid background */
+    }
+
+    /* Backdrop for when menu is open */
+    .nav-links::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: -100vw;
+        /* Cover rest of screen */
+        width: 100vw;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        z-index: -1;
+    }
+
+    body.nav-open .nav-links::before {
+        opacity: 1;
+        pointer-events: auto;
+        /* Note: Closing on click requires JS handling on the backdrop or strict layout */
+    }
+
+    /* Adjust Links for Mobile */
+    .nav-links a,
+    .services-dropdown .services-link {
+        font-size: 1.15rem !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        padding: 1rem 0 !important;
+        cursor: pointer !important;
+        color: var(--accent) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        text-align: left !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.4 !important;
+        margin-right: 0 !important;
+        padding-right: 2rem !important;
+        /* Internal safety buffer */
+        box-sizing: border-box !important;
+    }
+
+    .services-dropdown .services-link {
+        font-weight: 700 !important;
+        /* Bolder for visibility */
+        justify-content: space-between !important;
+    }
+
+    /* Caret Icon */
+    .caret {
+        display: inline-block !important;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid var(--accent) !important;
+        border-bottom: 2px solid var(--accent) !important;
+        transform: rotate(45deg);
+        transition: transform 0.3s ease;
+        margin-right: 5px;
+    }
+
+    .caret.rotated {
+        transform: rotate(-135deg) translateY(-2px);
+    }
+
+    .btn-nav {
+        width: 100%;
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+
+    /* Mega Menu on Mobile - Aesthetic Parity with Desktop */
+    .mega-menu {
+        position: static !important;
+        width: 100% !important;
+        transform: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        pointer-events: none !important;
+        padding: 0 !important;
+        background: linear-gradient(90deg, #c2185b, #d81b60) !important;
+        /* RED GRADIENT */
+        border: 1px solid #B88A2E !important;
+        border-radius: 12px !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+        display: flex !important;
+        transition: all 0.4s ease !important;
+        margin-top: 0 !important;
+        top: auto !important;
+        left: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    .mega-menu.open,
+    .services-dropdown:hover .mega-menu {
+        /* Enable hover expansion too */
+        opacity: 1 !important;
+        visibility: visible !important;
+        height: auto !important;
+        pointer-events: auto !important;
+        padding: 1rem 1.2rem !important;
+        /* Balanced sub-link padding */
+        margin-top: 0.5rem !important;
+        margin-bottom: 1rem !important;
+        display: flex !important;
+    }
+
+    .mega-col {
+        min-width: unset !important;
+        gap: 0 !important;
+        width: 100% !important;
+    }
+
+    .mega-col a {
+        font-size: 1.05rem !important;
+        padding: 0.9rem 0 !important;
+        color: #ffffff !important;
+        border-bottom: 1px dotted rgba(212, 175, 55, 0.3) !important;
+        justify-content: flex-start !important;
+        display: flex !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        text-align: left !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Hide About Us on Mobile (as per 3-item request) */
+    .nav-links .nav-item-about {
+        display: none !important;
+    }
+
+    /* Balanced link padding for mobile visibility */
+    .nav-links a,
+    .services-dropdown .services-link {
+        padding-left: 0.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    /* Adjust Logo for Mobile */
+    .logo-text {
+        font-size: 0.7rem !important;
+        letter-spacing: 0.05rem !important;
+        line-height: 1.1 !important;
+        pointer-events: none;
+    }
+
+    .nav-logo img {
+        height: 42px !important;
+        /* Slightly smaller logo */
+        width: auto !important;
+    }
+
+    /* Nav Logo Z-Index */
+    .nav-logo {
+        z-index: 1001 !important;
+    }
+}
