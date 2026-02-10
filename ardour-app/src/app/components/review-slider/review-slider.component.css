@@ -1,0 +1,152 @@
+.review-section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'DM Sans', sans-serif;
+    /* Assuming DM Sans or similar usage */
+    color: #fff;
+}
+
+.review-header {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.review-line {
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #D4AF37;
+    margin-bottom: 1rem;
+}
+
+.review-header h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin: 0;
+    color: #D4AF37;
+}
+
+.review-nav-circle {
+    position: absolute;
+    top: 0;
+    left: 200px;
+    /* Adjust based on layout */
+    /* This is an approximation of the circle in the design, adjusting position might be needed */
+    display: none;
+    /* Hiding for now unless strict positioning required */
+}
+
+
+/* Content Layout */
+.review-content {
+    display: flex;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.review-left {
+    flex: 0 0 250px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.reviewer-image-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.reviewer-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reviewer-info h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+}
+
+.reviewer-info p {
+    font-size: 0.9rem;
+    color: #fff;
+    margin: 0;
+    font-weight: 500;
+}
+
+.review-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review-text {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    max-width: 800px;
+}
+
+/* Controls */
+.review-controls {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.nav-btn:hover {
+    transform: scale(1.1);
+}
+
+.arrow-icon {
+    font-weight: 300;
+    /* Thin arrows */
+}
+
+.review-counter {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .review-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .review-left {
+        flex-direction: row;
+        /* Keep image next to text on mobile or change to column */
+        align-items: center;
+        width: 100%;
+    }
+
+    .review-header h2 {
+        font-size: 2rem;
+    }
+
+    .review-text {
+        font-size: 1.1rem;
+    }
+}

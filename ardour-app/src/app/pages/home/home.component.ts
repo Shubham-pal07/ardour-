@@ -4,9 +4,11 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { EmailService } from '../../services/email.service';
 import { RouterLink } from '@angular/router';
 
+import { ReviewSliderComponent } from '../../components/review-slider/review-slider.component';
+
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, ReviewSliderComponent],
   templateUrl: './home.html',
   styleUrl: './home.css',
   providers: [DecimalPipe]

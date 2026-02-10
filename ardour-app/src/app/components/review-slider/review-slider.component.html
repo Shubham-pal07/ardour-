@@ -1,0 +1,39 @@
+<section class="review-section">
+    <div class="review-header">
+        <span class="review-line"></span>
+        <h2>Hear from trusted clients</h2>
+        <div class="review-nav-circle">
+            <!-- Optional Top Decoration Circle -->
+            <div class="circle-dot"></div>
+        </div>
+    </div>
+
+    <div class="review-content">
+        <div class="review-left">
+            <div class="reviewer-image-wrapper">
+                <img *ngIf="currentReview.image" [src]="currentReview.image" [alt]="currentReview.name"
+                    class="reviewer-image">
+            </div>
+            <div class="reviewer-info">
+                <h3>{{ currentReview.name }}</h3>
+                <p>{{ currentReview.role }}</p>
+            </div>
+        </div>
+
+        <div class="review-right">
+            <p class="review-text">"{{ currentReview.feedback }}"</p>
+
+            <div class="review-controls">
+                <button (click)="prev()" class="nav-btn prev-btn">
+                    <span class="arrow-icon">←</span>
+                </button>
+
+                <span class="review-counter">{{ currentIndex + 1 }} — {{ reviews.length }}</span>
+
+                <button (click)="next()" class="nav-btn next-btn">
+                    <span class="arrow-icon">→</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
