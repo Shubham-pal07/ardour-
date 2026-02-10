@@ -1,0 +1,95 @@
+/* Splash Screen */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #050509;
+    /* Deep dark background */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+.splash-screen.fade-out {
+    transform: translateY(-100%);
+    /* Slide up to reveal site */
+    opacity: 0;
+}
+
+.splash-content {
+    text-align: center;
+    animation: fadeIn 1.2s ease-out forwards;
+}
+
+.splash-logo img {
+    height: 100px;
+    margin-bottom: 1.5rem;
+    animation: zoomIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.splash-text h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: slideUpFade 0.8s ease-out 0.5s forwards;
+    /* Delay text */
+}
+
+.splash-text h1 span {
+    color: #FFB703;
+    /* Gold Accent */
+    margin-left: 8px;
+}
+
+.splash-text p {
+    font-size: 0.9rem;
+    color: #ccc;
+    letter-spacing: 0.1em;
+    /* text-transform: uppercase; Removed */
+    opacity: 0;
+    animation: slideUpFade 0.8s ease-out 0.8s forwards;
+    /* Delay tagline further */
+    margin-top: 0.5rem;
+}
+
+/* Animations */
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUpFade {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

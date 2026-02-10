@@ -6,6 +6,7 @@ import { isPlatformBrowser } from '@angular/common';
   imports: [],
   templateUrl: './footer.html',
   styleUrl: './footer.css',
+  // Rebuild trigger
 })
 export class Footer {
   currentYear = new Date().getFullYear();

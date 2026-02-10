@@ -1,3 +1,16 @@
+<!-- Splash Screen -->
+<div class="splash-screen" *ngIf="showSplash" [class.fade-out]="fadeOut">
+    <div class="splash-content">
+        <div class="splash-logo">
+            <img src="assets/photos/WhatsApp Image 2025-12-29 at 1.14.26 PM.png" alt="Ardour Logo">
+        </div>
+        <div class="splash-text">
+            <h1>ARDOUR <span>BRAND </span> <span>SERVICES</span></h1>
+            <p>Driven By Passion Defined By Excellence</p>
+        </div>
+    </div>
+</div>
+
 <app-header></app-header>
 <router-outlet></router-outlet>
 <app-footer></app-footer>

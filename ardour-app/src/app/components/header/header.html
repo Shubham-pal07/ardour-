@@ -1,17 +1,22 @@
 <header id="site-header" [class.nav-scrolled]="isScrolled">
     <nav class="nav">
+        <div class="nav-home">
+            <a routerLink="/" aria-label="Home">
+                <i class="fas fa-home"></i>
+            </a>
+        </div>
         <div class="nav-brand">
             <div class="nav-logo">
                 <img src="assets/photos/WhatsApp Image 2025-12-29 at 1.14.26 PM.png" alt="logo">
             </div>
             <div class="logo-text">
                 ARDOUR
-               <span>BRAND</span>   
-               <span>SERVICES</span>
-                
+                <span>BRAND</span>
+                <span>SERVICES</span>
             </div>
         </div>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" (click)="toggleNav()">
+        <button class="nav-toggle" id="nav-toggle" [class.hidden-toggle]="isServicesOpen" aria-label="Toggle navigation"
+            (click)="toggleNav()">
             <span></span>
             <span></span>
             <span></span>
@@ -25,33 +30,38 @@
 
                 <!-- MEGA MENU -->
                 <div class="mega-menu" [class.open]="isServicesOpen">
-                    <div class="mega-col">
-                        <a routerLink="/government">Goverment Events</a>
-                        <a routerLink="/corporate">Exhibitions</a>
-                        <a href="javascript:void(0)">Seminars</a>
-                        <a href="javascript:void(0)">Annual Day</a>
-                        <a href="javascript:void(0)">Award Night</a>
-                        <a href="javascript:void(0)">Sports Events</a>
+                    <div class="mega-inner">
+                        <div class="mobile-back" (click)="toggleServices($event); $event.stopPropagation()">
+                            <span class="back-icon">✕</span> <span class="back-text">Close Services</span>
+                        </div>
+                        <div class="mega-col">
+                            <a href="javascript:void(0)">Goverment Events</a>
+                            <a href="javascript:void(0)">Exhibitions</a>
+                            <a href="javascript:void(0)">Seminars</a>
+                            <a href="javascript:void(0)">Annual Day</a>
+                            <a href="javascript:void(0)">Award Night</a>
+                            <a href="javascript:void(0)">Sports Events</a>
 
-                    </div>
+                        </div>
 
-                    <div class="mega-col">
+                        <div class="mega-col">
 
-                        <a href="javascript:void(0)">Team Building Activities</a>
-                        <a href="javascript:void(0)">Family Day Events</a>
-                        <a routerLink="/atl-btl">ATL & BTL Activities</a>
-                        <a href="javascript:void(0)">Brand Promotion</a>
-                        <a href="javascript:void(0)">Artist Management</a>
-                        <a href="javascript:void(0)">Celebrity Management</a>
-                    </div>
+                            <a href="javascript:void(0)">Team Building Activities</a>
+                            <a href="javascript:void(0)">Family Day Events</a>
+                            <a href="javascript:void(0)">ATL & BTL Activities</a>
+                            <a href="javascript:void(0)">Brand Promotion</a>
+                            <a href="javascript:void(0)">Artist Management</a>
+                            <a href="javascript:void(0)">Celebrity Management</a>
+                        </div>
 
-                    <div class="mega-col">
-                        <a href="javascript:void(0)">Theme Party</a>
-                        <a href="javascript:void(0)">Entertainment</a>
-                        <a href="javascript:void(0)">Stage & Fabrication</a>
-                        <a href="javascript:void(0)">Rentals</a>
-                        <a routerLink="/staffing">Manpower</a>
-                        <a href="javascript:void(0)">Corporate Gifting</a>
+                        <div class="mega-col">
+                            <a href="javascript:void(0)">Theme Party</a>
+                            <a href="javascript:void(0)">Entertainment</a>
+                            <a href="javascript:void(0)">Stage & Fabrication</a>
+                            <a href="javascript:void(0)">Rentals</a>
+                            <a href="javascript:void(0)">Staffing & Recruitment</a>
+                            <a href="javascript:void(0)">Corporate Gifting</a>
+                        </div>
                     </div>
                 </div>
             </div>

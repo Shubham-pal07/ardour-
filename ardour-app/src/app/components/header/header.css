@@ -2,32 +2,61 @@
 
 @media (max-width: 900px) {
 
-    /* Show Hamburger on Mobile */
+    /* Reset Nav Container for Mobile */
+    .nav {
+        padding: 0.75rem 1rem !important;
+        justify-content: center !important;
+        /* Center the logo */
+    }
+
+    /* Position Hamburger/Cross in Top-Right Corner */
     .nav-toggle {
         display: block !important;
-        z-index: 1001;
-        /* Must be above everything */
-        position: relative;
+        z-index: 2005 !important;
+        position: absolute !important;
+        right: 1.5rem;
+        /* Corner spacing */
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+    }
+
+    .nav-toggle.hidden-toggle {
+        opacity: 0 !important;
+        pointer-events: none !important;
+        visibility: hidden !important;
+    }
+
+    /* FIX: Remove containing block constraints from Header on Mobile */
+    #site-header {
+        backdrop-filter: none !important;
+        transform: none !important;
+        perspective: none !important;
+        filter: none !important;
+        /* Ensure it doesn't clip fixed (100vh) children */
+        height: auto !important;
+        /* Let content flow if needed, though usually fixed height */
     }
 
     /* Mobile Navigation Container */
     .nav-links {
         position: fixed !important;
         top: 0 !important;
-        right: 0 !important;
-        left: auto !important;
+        left: 100% !important;
+        /* Start off-screen */
+        right: auto !important;
         bottom: 0 !important;
-        width: 280px !important;
-        /* Reliable fixed width for mobile */
+        width: 100% !important;
         background: #2E3A66 !important;
         padding: 5rem 1.5rem 2rem !important;
-        /* Standard balanced padding */
         display: flex !important;
         flex-direction: column !important;
         align-items: stretch !important;
         gap: 0.5rem !important;
-        transform: translateX(100%) !important;
-        transition: transform 0.3s ease-out !important;
+
+        /* Removed transform to allow children to be fixed to viewport */
+        transition: left 0.3s ease-out !important;
+
         z-index: 2000 !important;
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.7) !important;
         overflow-y: auto !important;
@@ -36,15 +65,15 @@
         box-sizing: border-box !important;
     }
 
-    /* Open State - Strongest Overrides to Fix Invisible Menu */
+    /* Open State */
     body.nav-open .nav-links,
     .nav-links.active {
+        left: 0 !important;
+        /* Slide in */
         opacity: 1 !important;
         visibility: visible !important;
-        transform: translateX(0) !important;
         pointer-events: auto !important;
         background: #2E3A66 !important;
-        /* Ensure solid background */
     }
 
     /* Backdrop for when menu is open */
@@ -115,70 +144,127 @@
     }
 
     .btn-nav {
-        width: 100%;
-        text-align: center;
-        margin-top: 1.5rem;
+        position: static !important;
+        /* Reset absolute position */
+        transform: none !important;
+        display: block !important;
+        /* Force display */
+        width: 100% !important;
+        text-align: center !important;
+        margin-top: 2rem !important;
+        padding: 1rem !important;
+        background: #f5f5f5 !important;
+        color: #B88A2E !important;
+        border: 1px solid #B88A2E !important;
+        border-radius: 999px !important;
+        font-weight: bold !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.1em !important;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 
-    /* Mega Menu on Mobile - Aesthetic Parity with Desktop */
+    /* Mega Menu on Mobile - STRICT FULL SCREEN OVERLAY */
+    /* Mega Menu on Mobile - STRICT FULL SCREEN OVERLAY */
     .mega-menu {
-        position: static !important;
-        width: 100% !important;
-        transform: none !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        width: 100vw !important;
+        height: auto !important;
+        background: #2E3A66 !important;
+        z-index: 9999 !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 6rem 2rem 4rem !important;
+        box-sizing: border-box !important;
+        overflow-y: scroll !important;
+        -webkit-overflow-scrolling: touch !important;
+
+        /* Closed State */
+        transform: translateX(100%);
         opacity: 0 !important;
         visibility: hidden !important;
-        height: 0 !important;
-        overflow: hidden !important;
-        pointer-events: none !important;
-        padding: 0 !important;
-        background: linear-gradient(90deg, #c2185b, #d81b60) !important;
-        /* RED GRADIENT */
-        border: 1px solid #B88A2E !important;
-        border-radius: 12px !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
-        flex-direction: column !important;
-        gap: 0 !important;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s linear 0.3s !important;
+
+        max-height: none !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        display: block !important;
+        /* Reset flex on parent */
+    }
+
+    .mega-inner {
         display: flex !important;
-        transition: all 0.4s ease !important;
-        margin-top: 0 !important;
-        top: auto !important;
-        left: auto !important;
-        box-sizing: border-box !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0 !important;
     }
 
     .mega-menu.open,
-    .services-dropdown:hover .mega-menu {
-        /* Enable hover expansion too */
+    .services-dropdown.active .mega-menu {
+        transform: translateX(0) !important;
         opacity: 1 !important;
         visibility: visible !important;
-        height: auto !important;
-        pointer-events: auto !important;
-        padding: 1rem 1.2rem !important;
-        /* Balanced sub-link padding */
-        margin-top: 0.5rem !important;
-        margin-bottom: 1rem !important;
-        display: flex !important;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s linear 0s !important;
+        /* Immediate visibility on open */
     }
+
+    /* Mobile Back/Close Button */
+    .mobile-back {
+        display: flex !important;
+        align-items: center;
+        gap: 1rem;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: #FFB703;
+        font-weight: bold;
+    }
+
+    .mobile-back:active {
+        opacity: 0.7;
+    }
+
+
 
     .mega-col {
         min-width: unset !important;
         gap: 0 !important;
         width: 100% !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .mega-col:last-child {
+        margin-bottom: 0 !important;
     }
 
     .mega-col a {
-        font-size: 1.05rem !important;
-        padding: 0.9rem 0 !important;
-        color: #ffffff !important;
-        border-bottom: 1px dotted rgba(212, 175, 55, 0.3) !important;
-        justify-content: flex-start !important;
-        display: flex !important;
-        white-space: normal !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
+        font-size: 1.1rem !important;
+        /* Larger text */
+        padding: 0.8rem 0 !important;
+        color: #e0e0e0 !important;
+        /* Off-white for readability */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+        display: block !important;
         text-align: left !important;
+        text-transform: capitalize !important;
         width: 100% !important;
         box-sizing: border-box !important;
+    }
+
+    .mega-col a:hover,
+    .mega-col a:active {
+        color: #FFB703 !important;
+        /* Gold on hover/tap */
+        padding-left: 5px !important;
+        text-decoration: none !important;
+        background: transparent !important;
     }
 
     /* Hide About Us on Mobile (as per 3-item request) */

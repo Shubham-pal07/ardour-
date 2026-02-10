@@ -29,6 +29,42 @@ body {
 
   color: var(--text-main);
   line-height: 1.6;
+  font-size: 0.92rem;
+  /* Reduced overall size */
+}
+
+/* Explicitly set heading sizes to prevent them from shrinking */
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+/* Ensure inputs also scale down */
+input,
+textarea,
+select,
+button,
+label {
+  font-size: 0.92rem;
 }
 
 a {
@@ -58,7 +94,9 @@ header.nav-scrolled {
 .nav {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 12rem 0.75rem 5rem;
+  /* Added padding on both sides for absolute elements */
+  /* Added left padding for home icon clearance */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -119,7 +157,8 @@ header.nav-scrolled {
   /* padding-top: 1.5%; Removed to align with center */
 }
 
-.nav-links a {
+.nav-links a,
+.nav-home a {
   position: relative;
   padding-bottom: 0.05rem;
   font-weight: 500;
@@ -128,6 +167,7 @@ header.nav-scrolled {
   transition: color var(--transition-fast);
 }
 
+/* Underline animation for text links only */
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -140,12 +180,47 @@ header.nav-scrolled {
   transition: width var(--transition-fast);
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-home a:hover {
   color: var(--accent);
 }
 
 .nav-links a:hover::after {
   width: 100%;
+}
+
+/* Home Icon Specific */
+.nav-home {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  /* Take out of flow */
+  left: 2rem;
+  /* Position in corner */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 60;
+  /* Above regular nav */
+}
+
+.nav-home i {
+  font-size: 1.5rem;
+  /* Increased size */
+  color: transparent;
+  /* Hide fill initially */
+  -webkit-text-stroke: 1px var(--accent);
+  /* Outline shape */
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.nav-home a:hover i {
+  color: var(--accent);
+  /* Fill on hover */
+  -webkit-text-stroke: 0;
+  /* Remove stroke or keep it, doesn't matter much if filled */
+  filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.6));
 }
 
 /* ================================
@@ -154,7 +229,7 @@ header.nav-scrolled {
 
 /* Wrap Services link */
 .services-dropdown {
-  position: relative;
+  position: static;
 }
 
 /* Keep same nav-link look */
@@ -185,18 +260,21 @@ header.nav-scrolled {
 /* Mega menu container */
 .mega-menu {
   position: absolute;
-  top: 188%;
-  left: 50%;
-  transform: translateX(-50%) translateY(12px);
-  width: 45vw;
+  top: 80px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: none;
+  /* Full width */
 
-  border-radius: 10px;
-  border: 1px solid #B88A2E;
-  background: linear-gradient(90deg, #c2185b, #d81b60);
+  border-top: 3px solid #D4AF37;
+  background: #2E3A66;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 
-  padding: 2.5rem 4rem;
-  display: flex;
-  gap: 3rem;
+  padding: 0;
+  /* Clear padding, moved to inner */
+  display: block;
+  /* Reset flex */
 
   z-index: 100;
 
@@ -206,6 +284,23 @@ header.nav-scrolled {
   pointer-events: none;
 
   transition: opacity 0.25s ease, transform 0.25s ease;
+  transform: translateY(10px);
+}
+
+/* New Inner Container */
+.mega-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: center;
+  /* Or flex-start to align with logo */
+  gap: 3rem;
+}
+
+/* Hide mobile back on desktop */
+.mega-menu .mobile-back {
+  display: none;
 }
 
 
@@ -239,7 +334,7 @@ header.nav-scrolled {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
+  transform: translateY(0);
 }
 
 /* Prevent underline animation inside mega menu */
@@ -281,6 +376,14 @@ header.nav-scrolled {
 
 .btn-nav {
   display: inline-block;
+  position: absolute;
+  /* Take out of flow */
+  right: 2rem;
+  /* Position in right corner */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 60;
+
   padding: 0.4rem 1rem;
   border-radius: 999px;
   border: 1px solid#B88A2E;

@@ -200,14 +200,14 @@
                         <div class="media-box">
                             <img src="assets/about/ar.png" alt="Events Management">
                         </div>
-                    </div> 
+                    </div>
                     <div class="media-box media-video">
                         <video autoplay muted loop playsinline>
-                           <source src="assets\photos\Untitled design.mp4" type="video/mp4">
+                            <source src="assets\photos\Untitled design.mp4" type="video/mp4">
                         </video>
 
                         <button class="play-btn" type="button"></button>
-                    </div>   
+                    </div>
                 </div>
                 <div>
 
@@ -359,57 +359,62 @@
             measurable impact.
         </p>
 
-        <div class="grid-2" style="margin-top:1.2rem;">
+        <div style="max-width: 800px; margin: 2rem auto;">
             <div class="card">
-                <h3>Corporate Office</h3>
-                <p>
-                    Plot No. 4 &amp; 5,<br />
-                    Vijay Enclave, Palam Dabri Marg,<br />
-                    New Delhi – 110045, India
-                </p>
-                <p>
-                    <strong>Mobile:</strong> +91 99 1017 1637<br />
-                    <strong>Email:</strong> <a href="mailto:ravi@ardour.in">ravi@ardour.in</a><br />
-                    <strong>Website:</strong> <a href="https://www.ardour.in" target="_blank"
-                        rel="noopener">www.ardour.in</a>
-                </p>
-            </div>
-            <div class="card">
-                <h3>Quick Contact Form</h3>
-                <p style="font-size:0.85rem;">
-                    Let’s Connect
-                </p>
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h3>Get In Touch</h3>
+                    <p style="color: #ccc; margin-top: 0.5rem;">
+                        Fill out the form below and we will get back to you shortly.
+                    </p>
+                </div>
+
                 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-                    <div style="margin-bottom:0.6rem;">
-                        <label for="name" class="input-label">Name</label><br />
-                        <input id="name" type="text" class="input-field" formControlName="name" />
-                        <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
-                            style="color:red; font-size: 0.8rem;">Name is required</div>
+                    <div class="form-grid"
+                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div>
+                            <label for="name" class="input-label">Name</label>
+                            <input id="name" type="text" class="input-field" formControlName="name"
+                                placeholder="Your Name" />
+                            <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+                                style="color:red; font-size: 0.8rem; margin-top: 4px;">Name is required</div>
+                        </div>
+                        <div>
+                            <label for="mobile" class="input-label">Mobile</label>
+                            <input id="mobile" type="number" class="input-field" formControlName="mobile"
+                                placeholder="Your Mobile Number" />
+                            <div *ngIf="contactForm.get('mobile')?.invalid && contactForm.get('mobile')?.touched"
+                                style="color:red; font-size: 0.8rem; margin-top: 4px;">Mobile is required</div>
+                        </div>
                     </div>
-                    <div style="margin-bottom:0.6rem;">
-                        <label for="email" class="input-label">Email</label><br />
-                        <input id="email" type="email" class="input-field" formControlName="email" />
+
+                    <div style="margin-bottom: 1rem;">
+                        <label for="email" class="input-label">Email</label>
+                        <input id="email" type="email" class="input-field" formControlName="email"
+                            placeholder="Your Email Address" />
                         <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
-                            style="color:red; font-size: 0.8rem;">Valid email is required</div>
+                            style="color:red; font-size: 0.8rem; margin-top: 4px;">Valid email is required</div>
                     </div>
-                    <div style="margin-bottom:0.6rem;">
-                        <label for="number" class="input-label">mobile</label><br />
-                        <input id="number" type="number" class="input-field" formControlName="mobile" />
-                        <div *ngIf="contactForm.get('mobile')?.invalid && contactForm.get('mobile')?.touched"
-                            style="color:red; font-size: 0.8rem;">Mobile number is required</div>
-                    </div>
-                    <div style="margin-bottom:0.6rem;">
-                        <label for="message" class="input-label">Project / Requirement</label><br />
-                        <textarea id="message" rows="3" class="input-field" formControlName="message"></textarea>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="message" class="input-label">Project / Requirement</label>
+                        <textarea id="message" rows="4" class="input-field" formControlName="message"
+                            placeholder="Tell us about your project..."></textarea>
                         <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
-                            style="color:red; font-size: 0.8rem;">Message is required</div>
+                            style="color:red; font-size: 0.8rem; margin-top: 4px;">Message is required</div>
                     </div>
-                    <button type="submit" class="btn-primary" [disabled]="contactForm.invalid || isSubmitting">
-                        <span *ngIf="!isSubmitting">Submit Enquiry</span>
-                        <span *ngIf="isSubmitting">Sending...</span>
-                    </button>
-                    <div *ngIf="successMessage" style="color: green; margin-top: 10px;">{{ successMessage }}</div>
-                    <div *ngIf="errorMessage" style="color: red; margin-top: 10px;">{{ errorMessage }}</div>
+
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn-primary" [disabled]="contactForm.invalid || isSubmitting"
+                            style="width: 100%; max-width: 300px;">
+                            <span *ngIf="!isSubmitting">Send Message</span>
+                            <span *ngIf="isSubmitting">Sending...</span>
+                        </button>
+                    </div>
+
+                    <div *ngIf="successMessage" style="color: green; margin-top: 15px; text-align: center;">{{
+                        successMessage }}</div>
+                    <div *ngIf="errorMessage" style="color: red; margin-top: 15px; text-align: center;">{{ errorMessage
+                        }}</div>
                 </form>
             </div>
         </div>
