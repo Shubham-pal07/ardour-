@@ -131,11 +131,11 @@
 /* Responsive */
 @media (max-width: 768px) {
     .review-section {
-        padding: 2rem 1rem;
+        padding: 1rem 1rem;
     }
 
     .review-header {
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
     }
 
     .review-content {
@@ -148,6 +148,7 @@
         /* Keep image next to text on mobile or change to column */
         align-items: center;
         width: 100%;
+        flex: 0 0 auto;
     }
 
     .review-header h2 {
